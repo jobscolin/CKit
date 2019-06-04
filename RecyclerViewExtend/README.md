@@ -25,6 +25,8 @@ showLastColumn|showLastColumn|GRID模式下是否展示最后一个item右边的
 
 
 ````
+example:
+
 CustomItemDecoration horizontalDecoration = new CustomItemDecoration
                 .Builder(this)
                 .showFirst(true)
@@ -33,4 +35,18 @@ CustomItemDecoration horizontalDecoration = new CustomItemDecoration
                 .setPaddingBottom(10)
                 .setMod(CustomItemDecoration.HORIZONTAL)
                 .create();
+
+CustomItemDecoration gridDecoration = new CustomItemDecoration.Builder(this)
+                .setMod(CustomItemDecoration.GRID)
+                .showLeft(true)
+                .showRight(true)
+                .showBottom(true)
+                .showTop(true)
+                .setPaddingLeft(10)
+                .setPaddingRight(10)
+                .setPaddingTop(10)
+                .setPaddingBottom(10)
+                .showLastColumn(false)
+                .create();
 ````
+
