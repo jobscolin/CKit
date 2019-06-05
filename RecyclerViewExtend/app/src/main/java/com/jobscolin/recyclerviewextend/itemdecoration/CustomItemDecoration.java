@@ -84,9 +84,9 @@ public class CustomItemDecoration extends RecyclerView.ItemDecoration {
     public void getItemOffsets(@NonNull Rect outRect, @NonNull View view, @NonNull RecyclerView parent,
                                @NonNull RecyclerView.State state) {
         if (mod == VERTICAL) {
-            setVerticalOffsets(outRect, parent, view);
+            setVerticalOffsets(outRect, parent, view, state);
         } else if (mod == HORIZONTAL) {
-            setHorizontalOffsets(outRect, parent, view);
+            setHorizontalOffsets(outRect, parent, view, state);
         } else {
             setGridOffsets(outRect, parent, view, state);
         }
@@ -190,25 +190,21 @@ public class CustomItemDecoration extends RecyclerView.ItemDecoration {
      * @param parent
      * @param view
      */
-    private void setHorizontalOffsets(Rect outRect, RecyclerView parent, View view) {
+    private void setHorizontalOffsets(Rect outRect, RecyclerView parent, View view, RecyclerView.State state) {
         int childLayoutPosition = parent.getChildLayoutPosition(view);
-        if (showFirst && !showLast) {
-            outRect.set((int) space, 0, 0, 0);
-        } else if (!showFirst && showLast) {
-            outRect.set(0, 0, (int) space, 0);
-        } else if (showFirst && showLast) {
-            if (childLayoutPosition == 0) {
-                outRect.set((int) space, 0, (int) space, 0);
-            } else {
-                outRect.set(0, 0, (int) space, 0);
+        int itemCount = state.getItemCount();
+        if (childLayoutPosition != itemCount - 1) {
+            if (childLayoutPosition != 0 || showFirst) {
+                outRect.set((int) space, 0, 0, 0);
             }
         } else {
-            if (childLayoutPosition == 0) {
-                outRect.set(0, 0, 0, 0);
+            if (showLast) {
+                outRect.set((int) space, 0, (int) space, 0);
             } else {
                 outRect.set((int) space, 0, 0, 0);
             }
         }
+
     }
 
     /**
@@ -218,27 +214,21 @@ public class CustomItemDecoration extends RecyclerView.ItemDecoration {
      * @param parent
      * @param view
      */
-    private void setVerticalOffsets(Rect outRect, RecyclerView parent, View view) {
+    private void setVerticalOffsets(Rect outRect, RecyclerView parent, View view, RecyclerView.State state) {
         int childLayoutPosition = parent.getChildLayoutPosition(view);
-        if (showFirst && !showLast) {
-            outRect.set(0, (int) space, 0, 0);
-
-        } else if (!showFirst && showLast) {
-            outRect.set(0, 0, 0, (int) space);
-
-        } else if (showFirst && showLast) {
-            if (childLayoutPosition == 0) {
-                outRect.set(0, (int) space, 0, (int) space);
-            } else {
-                outRect.set(0, 0, 0, (int) space);
+        int itemCount = state.getItemCount();
+        if (childLayoutPosition != itemCount - 1) {
+            if (childLayoutPosition != 0 || showFirst) {
+                outRect.set(0, (int) space, 0, 0);
             }
         } else {
-            if (childLayoutPosition == 0) {
-                outRect.set(0, 0, 0, 0);
+            if (showLast) {
+                outRect.set(0, (int) space, 0, (int) space);
             } else {
                 outRect.set(0, (int) space, 0, 0);
             }
         }
+
     }
 
     /**
@@ -514,7 +504,7 @@ public class CustomItemDecoration extends RecyclerView.ItemDecoration {
             float left, top, right, bottom;
             int childLayoutPosition = parent.getChildLayoutPosition(child);
 
-            if (!(childLayoutPosition == 0 && !showFirst)) {
+            if (childLayoutPosition != 0 || showFirst){
                 left = child.getLeft() - space;
                 right = left + space;
                 top = parent.getPaddingTop() + paddingTop;
@@ -549,14 +539,14 @@ public class CustomItemDecoration extends RecyclerView.ItemDecoration {
 
             //判断当前item的position是否是第一个和创建时是否需要展示第一条item上面的分割线
             //除了第一条且设置了不展示第一条分割线的情况下，都画分割线
-            if (!(childLayoutPosition == 0 && !showFirst)) {
+            if (childLayoutPosition != 0 || showFirst) {
                 top = child.getTop() - space;
-                left = parent.getPaddingLeft() + paddingLeft;
-                right = parent.getWidth() - parent.getPaddingRight() - paddingRight;
+                left = child.getLeft() + paddingLeft;
+                right = child.getRight() - paddingRight;
                 bottom = top + space;
                 canvas.drawRect(left, top, right, bottom, divider);
             }
-            //在最后一天item的情况下判断是否设置了要展示分割线
+            //在最后一条item的情况下判断是否设置了要展示分割线
             if (childLayoutPosition == state.getItemCount() - 1 && showLast) {
                 top = child.getBottom();
                 left = parent.getPaddingLeft() + paddingLeft;

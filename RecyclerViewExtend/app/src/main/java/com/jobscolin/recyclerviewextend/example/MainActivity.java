@@ -7,6 +7,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.jobscolin.recyclerviewextend.R;
+import com.jobscolin.recyclerviewextend.itemanimators.FadeInAnimator;
 import com.jobscolin.recyclerviewextend.itemdecoration.CustomItemDecoration;
 
 import java.util.ArrayList;
@@ -20,15 +21,15 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mRecyclerView = findViewById(R.id.recycler);
+        mRecyclerView = findViewById(R.id.recyclers);
 
         for (int i = 0; i < 26; i++) {
             mList.add("");
         }
         RecyclerAdapter adapter = new RecyclerAdapter(this, mList);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 3);
-        mRecyclerView.setLayoutManager(gridLayoutManager);
+        mRecyclerView.setLayoutManager(linearLayoutManager);
         mRecyclerView.setAdapter(adapter);
 
         CustomItemDecoration customItemDecoration = new CustomItemDecoration
@@ -58,7 +59,13 @@ public class MainActivity extends AppCompatActivity {
                 .create();
 
 //        mRecyclerView.addItemDecoration(customItemDecoration);
-//        mRecyclerView.addItemDecoration(horizontalDecoration);
-        mRecyclerView.addItemDecoration(gridDecoration);
+        mRecyclerView.addItemDecoration(horizontalDecoration);
+//        mRecyclerView.addItemDecoration(gridDecoration);
+
+//        LayoutAnimationController layoutAnimation = AnimationUtils.loadLayoutAnimation(this,
+//                R.anim.layout_animator);
+//        mRecyclerView.setLayoutAnimation(layoutAnimation);
+
+        mRecyclerView.setItemAnimator(new FadeInAnimator());
     }
 }
