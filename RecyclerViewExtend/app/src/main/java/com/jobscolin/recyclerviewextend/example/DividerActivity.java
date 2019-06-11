@@ -7,7 +7,6 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.jobscolin.recyclerviewextend.R;
-import com.jobscolin.recyclerviewextend.adapters.RecyclerAdapter;
 import com.jobscolin.recyclerviewextend.itemdecoration.CustomItemDecoration;
 
 import java.util.ArrayList;
@@ -26,7 +25,7 @@ public class DividerActivity extends AppCompatActivity {
         for (int i = 0; i < 26; i++) {
             mList.add("");
         }
-        RecyclerAdapter adapter = new RecyclerAdapter(this, mList);
+        MainAdapter adapter = new MainAdapter(this, mList);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 3);
         mRecyclerView.setLayoutManager(linearLayoutManager);

@@ -14,7 +14,6 @@ import android.view.animation.OvershootInterpolator;
 
 import com.jobscolin.recyclerviewextend.R;
 import com.jobscolin.recyclerviewextend.adapters.AnimatorAdapter;
-import com.jobscolin.recyclerviewextend.adapters.ItemAnimatorExampleAdapter;
 import com.jobscolin.recyclerviewextend.itemanimators.SlideInLeftAnimator;
 
 import java.util.ArrayList;
@@ -27,7 +26,7 @@ import java.util.ArrayList;
 public class ItemAnimatorActivity extends AppCompatActivity {
     private RecyclerView mRecyclerView;
     private ArrayList<String> mData = new ArrayList<>();
-    private ItemAnimatorExampleAdapter mRecyclerAdapter;
+    private ItemAnimatorAdapter mRecyclerAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +39,7 @@ public class ItemAnimatorActivity extends AppCompatActivity {
             mData.add("This is " + i + " msg");
         }
 
-        mRecyclerAdapter = new ItemAnimatorExampleAdapter(this, mData);
+        mRecyclerAdapter = new ItemAnimatorAdapter(this, mData);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         mRecyclerView.setAdapter(new AnimatorAdapter(mRecyclerAdapter) {
             @Override

@@ -1,4 +1,4 @@
-package com.jobscolin.recyclerviewextend.adapters;
+package com.jobscolin.recyclerviewextend.example;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -17,11 +17,11 @@ import java.util.ArrayList;
  * @time : 2019/05/30
  * @describe :
  */
-public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHolder> {
+public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
     private Context mContext;
     private ArrayList<String> data;
 
-    public RecyclerAdapter(Context mContext, ArrayList<String>list) {
+    public MainAdapter(Context mContext, ArrayList<String>list) {
         this.mContext = mContext;
         this.data = list;
     }
