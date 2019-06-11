@@ -13,7 +13,7 @@ import com.jobscolin.recyclerviewextend.R;
 import java.util.ArrayList;
 
 /**
- * @author : XuDonglin
+ * @author : Xdl
  * @time : 2019/05/30
  * @describe :
  */

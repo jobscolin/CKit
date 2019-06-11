@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import com.jobscolin.recyclerviewextend.helper.ViewHelper;
 
 /**
- * @author : XuDonglin
+ * @author : Xdl
  * @time : 2019/06/06
  * @describe :
  */

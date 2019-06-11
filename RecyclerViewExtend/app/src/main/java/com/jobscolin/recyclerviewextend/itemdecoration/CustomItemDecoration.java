@@ -11,7 +11,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 /**
- * @author : XuDonglin
+ * @author : Xdl
  * @time : 2019/05/30
  * @describe :RecyclerView通用的分割线
  */
