@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         findViewById(R.id.decoration_btn).setOnClickListener(this);
         findViewById(R.id.animator_btn).setOnClickListener(this);
+        findViewById(R.id.layout_manager_btn).setOnClickListener(this);
 
     }
 
@@ -38,6 +39,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 intent.setClass(this, ItemAnimatorActivity.class);
                 startActivity(intent);
 
+                break;
+            case R.id.layout_manager_btn:
+                intent.setClass(this, LayoutManagerActivity.class);
+                startActivity(intent);
                 break;
             default:
                 break;
