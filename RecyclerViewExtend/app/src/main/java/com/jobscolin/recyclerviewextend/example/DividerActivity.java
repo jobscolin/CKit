@@ -3,7 +3,6 @@ package com.jobscolin.recyclerviewextend.example;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.jobscolin.recyclerviewextend.R;
@@ -26,9 +25,9 @@ public class DividerActivity extends AppCompatActivity {
             mList.add("");
         }
         MainAdapter adapter = new MainAdapter(this, mList);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
+//        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 3);
-        mRecyclerView.setLayoutManager(linearLayoutManager);
+        mRecyclerView.setLayoutManager(gridLayoutManager);
         mRecyclerView.setAdapter(adapter);
 
         CustomItemDecoration customItemDecoration = new CustomItemDecoration
@@ -57,9 +56,9 @@ public class DividerActivity extends AppCompatActivity {
                 .showLastColumn(false)
                 .create();
 
-        mRecyclerView.addItemDecoration(customItemDecoration);
+//        mRecyclerView.addItemDecoration(customItemDecoration);
 //        mRecyclerView.addItemDecoration(horizontalDecoration);
-//        mRecyclerView.addItemDecoration(gridDecoration);
+        mRecyclerView.addItemDecoration(gridDecoration);
 
     }
 }

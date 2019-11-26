@@ -9,8 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
-        <activity android:name=".example.LayoutManagerActivity"></activity>
+        <activity android:name=".example.ItemTouchActivity"></activity>
+        <activity android:name=".example.LayoutManagerActivity" />
         <activity android:name=".example.ItemAnimatorActivity" />
         <activity android:name=".example.DividerActivity" />
         <activity android:name=".example.MainActivity">

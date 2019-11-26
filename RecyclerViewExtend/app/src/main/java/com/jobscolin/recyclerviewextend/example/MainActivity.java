@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.decoration_btn).setOnClickListener(this);
         findViewById(R.id.animator_btn).setOnClickListener(this);
         findViewById(R.id.layout_manager_btn).setOnClickListener(this);
+        findViewById(R.id.item_touch_btn).setOnClickListener(this);
 
     }
 
@@ -33,7 +34,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.decoration_btn:
                 intent.setClass(this, DividerActivity.class);
                 startActivity(intent);
-
                 break;
             case R.id.animator_btn:
                 intent.setClass(this, ItemAnimatorActivity.class);
@@ -42,6 +42,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.layout_manager_btn:
                 intent.setClass(this, LayoutManagerActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.item_touch_btn:
+                intent.setClass(this, ItemTouchActivity.class);
                 startActivity(intent);
                 break;
             default:

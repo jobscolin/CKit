@@ -4,7 +4,7 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Rect;
-import android.support.annotation.ColorInt;
+import android.support.annotation.ColorRes;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -607,7 +607,7 @@ public class CustomItemDecoration extends RecyclerView.ItemDecoration {
             return this;
         }
 
-        public Builder setColor(@ColorInt int color) {
+        public Builder setColor(@ColorRes int color) {
             mParams.color = color;
             return this;
         }
@@ -659,6 +659,6 @@ public class CustomItemDecoration extends RecyclerView.ItemDecoration {
         public boolean showLeft = false;
         public boolean showRight = false;
         public boolean showLastColumn = true;
-        public int color = android.R.color.holo_red_dark;
+        public int color = android.R.color.transparent;
     }
 }
